@@ -1,6 +1,10 @@
 
 package asix1.pkg1.m03;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.util.Scanner;
+
 /**
  *
  * @author alumne
@@ -91,6 +95,27 @@ public Mesa(String nombre,String descripcion,int tamaño,int sillas_adulto,int s
         this.jardin = jardin;
     }
 
+    //Metodos
+    public void insertarMesaNueva() {
+        File fichero = new File("C:/Mesas");
+        Scanner sc = new Scanner(System.in);
+        try {
+
+            // El true al final indica que escribiremos al final del fichero añadiendo texto
+            FileWriter writer = new FileWriter(fichero, true);
+            
+            writer.write(this.nombre+";"+this.descripcion+";"+this.tamaño+";"+this.sillas_adulto+";"+this.sillas_niño+";"+this.ventilador+";"+this.jardin+";"+"\n");
+
+            writer.close();
+
+        } catch (Exception e) {
+
+            System.out.println("Ha ocurrido un error al crear/escribir en el fichero");
+
+        }
+    }
+    
+    
     @Override
     public String toString() {
         return "Mesa{" + "nombre=" + nombre + ", descripcion=" + descripcion + ", tama\u00f1o=" + tamaño + ", sillas_adulto=" + sillas_adulto + ", sillas_ni\u00f1o=" + sillas_niño + ", ventilador=" + ventilador + ", jardin=" + jardin + '}';
