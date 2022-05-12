@@ -1,0 +1,29 @@
+
+package asix1.pkg1.m03;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.util.Scanner;
+
+
+public class MesaDAO {
+    File fichero = new File("C:/Mesas.txt");
+    
+    public void insertarMesaNueva(Mesa mesa) {
+        Scanner sc = new Scanner(System.in);
+        try {
+
+            // El true al final indica que escribiremos al final del fichero añadiendo texto
+            FileWriter writer = new FileWriter(fichero, true);
+            
+            writer.write("\n"+mesa.getNombre()+";"+mesa.getDescripcion()+";"+mesa.getTamaño()+";"+mesa.getSillas_adulto()+";"+mesa.isSillas_niño()+";"+mesa.isVentilador()+";"+mesa.isJardin()+";"+"\n");
+
+            writer.close();
+
+        } catch (Exception e) {
+
+            System.out.println("Ha ocurrido un error al crear/escribir en el fichero");
+
+        }
+    }
+}
