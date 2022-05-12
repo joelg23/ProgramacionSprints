@@ -1,0 +1,101 @@
+
+package asix1.pkg1.m03;
+
+/**
+ *
+ * @author alumne
+ */
+public class Mesa {
+    private String nombre;
+    private String descripcion;
+    private int tamaño;
+    private int sillas_adulto;
+    private int sillas_niño;
+    private boolean ventilador;
+    private boolean jardin;
+   
+public Mesa(){
+    this.nombre=new String();
+    this.descripcion=new String();
+    this.tamaño=0;
+    this.sillas_adulto=0;
+    this.sillas_niño=0;
+    this.ventilador=false;
+    this.jardin=false;
+}
+
+public Mesa(String nombre,String descripcion,int tamaño,int sillas_adulto,int sillas_niño,
+        boolean ventilador,boolean jardin){
+    this.nombre=new String();
+    this.descripcion=new String();
+    this.tamaño=0;
+    this.sillas_adulto=0;
+    this.sillas_niño=0;
+    this.ventilador=false;
+    this.jardin=false;
+}
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getTamaño() {
+        return tamaño;
+    }
+
+    public void setTamaño(int tamaño) {
+        this.tamaño = tamaño;
+    }
+
+    public int getSillas_adulto() {
+        return sillas_adulto;
+    }
+
+    public void setSillas_adulto(int sillas_adulto) {
+        this.sillas_adulto = sillas_adulto;
+    }
+
+    public int getSillas_niño() {
+        return sillas_niño;
+    }
+
+    public void setSillas_niño(int sillas_niño) {
+        this.sillas_niño = sillas_niño;
+    }
+
+    public boolean isVentilador() {
+        return ventilador;
+    }
+
+    public void setVentilador(boolean ventilador) {
+        this.ventilador = ventilador;
+    }
+
+    public boolean isJardin() {
+        return jardin;
+    }
+
+    public void setJardin(boolean jardin) {
+        this.jardin = jardin;
+    }
+
+    @Override
+    public String toString() {
+        return "Mesa{" + "nombre=" + nombre + ", descripcion=" + descripcion + ", tama\u00f1o=" + tamaño + ", sillas_adulto=" + sillas_adulto + ", sillas_ni\u00f1o=" + sillas_niño + ", ventilador=" + ventilador + ", jardin=" + jardin + '}';
+    }
+
+
+
+}
