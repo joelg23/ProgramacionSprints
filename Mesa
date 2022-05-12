@@ -26,13 +26,13 @@ public Mesa(){
 
 public Mesa(String nombre,String descripcion,int tamaño,int sillas_adulto,int sillas_niño,
         boolean ventilador,boolean jardin){
-    this.nombre=new String();
-    this.descripcion=new String();
-    this.tamaño=0;
-    this.sillas_adulto=0;
-    this.sillas_niño=0;
-    this.ventilador=false;
-    this.jardin=false;
+    this.nombre=nombre;
+    this.descripcion=descripcion;
+    this.tamaño=tamaño;
+    this.sillas_adulto=sillas_adulto;
+    this.sillas_niño=sillas_niño;
+    this.ventilador=ventilador;
+    this.jardin=jardin;
 }
 
     public String getNombre() {
