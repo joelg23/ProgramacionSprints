@@ -11,5 +11,4 @@ public class ASIX11M03 {
         CRUD.insertarMesaNueva(mesaNueva);
         CRUD.eliminarMesa("A");
     }
-
 }
