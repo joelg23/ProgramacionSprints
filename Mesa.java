@@ -88,7 +88,4 @@ public class Mesa {
     public String toString() {
         return "Mesa{" + "nombre=" + nombre + ", descripcion=" + descripcion + ", tama\u00f1o=" + tamaño + ", sillas_adulto=" + sillas_adulto + ", sillas_ni\u00f1o=" + sillas_niño + ", ventilador=" + ventilador + ", jardin=" + jardin + '}';
     }
-
-    
-
 }
