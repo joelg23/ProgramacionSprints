@@ -33,6 +33,7 @@ public class Admin {
         this.apellidos = apellidos;
     }
 
+    //GETTERS AND SETTERS
     public String getNombreU() {
         return nombreU;
     }
