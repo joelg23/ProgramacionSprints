@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package asix1.pkg1.m03;
 
 public class Camarero {
@@ -12,7 +8,7 @@ public class Camarero {
     private String contraseña; // Contraseña del usuario. Ejemplo: 123A
     private String nombre; // Nombre de la persona.
     private String apellidos; // Apellidos de la persona.
-    
+    private int salario; // Salario del camarero
     //CONSTRUCTORES
     
     public Camarero() {
@@ -30,11 +26,12 @@ public class Camarero {
         this.apellidos = new String();
     }
 
-    public Camarero(String nombreU, String contraseña, String nombre, String apellidos) {
+    public Camarero(String nombreU, String contraseña, String nombre, String apellidos, int salario) {
         this.nombreU = nombreU;
         this.contraseña = contraseña;
         this.nombre = nombre;
         this.apellidos = apellidos;
+        this.salario = salario;
     }
     
     //GETTERS AND SETTERS
@@ -71,6 +68,15 @@ public class Camarero {
         this.apellidos = apellidos;
     }
 
+    public int getSalario() {
+        return salario;
+    }
+
+    public void setSalario(int salario) {
+        this.salario = salario;
+    }
+
+    
     
     @Override
     public String toString() {
