@@ -83,6 +83,4 @@ public class Camarero {
         return "Camarero{" + "nombreU=" + nombreU + ", contrase\u00f1a=" + contraseña + ", nombre=" + nombre + ", apellidos=" + apellidos + '}';
     }
     
-    
-    
 }
