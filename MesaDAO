@@ -18,7 +18,7 @@ public class MesaDAO {
             // El true al final indica que escribiremos al final del fichero añadiendo texto
             FileWriter writer = new FileWriter(fichero, true);
             
-            writer.write("\n"+mesa.getNombre()+";"+mesa.getDescripcion()+";"+mesa.getTamaño()+";"+mesa.getSillas_adulto()+";"+mesa.isSillas_niño()+";"+mesa.isVentilador()+";"+mesa.isJardin()+";"+"\n");
+            writer.write("\n"+mesa.getNombre()+";"+mesa.getDescripcion()+";"+mesa.getTamaño()+";"+mesa.getSillas_adulto()+";"+mesa.getSillas_niño()+";"+mesa.isVentilador()+";"+mesa.isJardin()+";"+"\n");
 
             writer.close();
 
