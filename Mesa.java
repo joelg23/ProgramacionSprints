@@ -3,6 +3,7 @@ package asix1.pkg1.m03;
 
 
 public class Mesa {
+    
     // Atributos
     private String nombre; // Nombre de la mesa. Ejemplo: M_24 (Servirá como id)
     private String descripcion; // Descripción de la mesa. Ejemplo: Mesa jardín M_24
