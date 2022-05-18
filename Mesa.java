@@ -1,10 +1,6 @@
 
-package proyectom03.restaurante;
+package asix1.pkg1.m03;
 
-/**
- *
- * @author Ricardo y Joel
- */
 
 public class Mesa {
     // Atributos
