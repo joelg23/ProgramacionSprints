@@ -71,9 +71,5 @@ public class Admin {
         return "Admin{" + "nombreU=" + nombreU + ", contrase\u00f1a=" + contraseña + ", nombre=" + nombre + ", apellidos=" + apellidos + '}';
     }
     
-    
-    
-    
-    
-    
+
 }
