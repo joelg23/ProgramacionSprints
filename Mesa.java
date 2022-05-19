@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package asix11m03;
+package asix1.pkg1.m03;
 
 import java.util.Scanner;
 
@@ -137,4 +137,3 @@ public class Mesa {
 		return x;
     }
 }
-
