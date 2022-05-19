@@ -45,54 +45,41 @@ public class MesaDAO {
         
     }
     
-    public void eliminarMesa(String nombre){
-        /*
-        try {
-            FileReader leer = new FileReader(fichero);
-            
-            for (int i = 0; i < arrMesas.size(); i++) {
-            Mesa mesaTemp = arrMesas.get(i);
-            if (mesaTemp.getNombre().equals(nombre)){
-                arrMesas.remove(i);
-                }
-            }        
-            
-            leer.close();
-            
-        } catch (IOException ex) {
-            System.out.println("No se ha encontrado el archivo.");
-        }
-        */
+public void eliminarMesa(String nombre) {
         
-        //Se guardan todas las lineas en un array
-    try {
+        ArrayList<String> lineas = new ArrayList<>();
+        
+        try {
             Scanner lectorFichero = new Scanner(fichero);
-            
-            int i=0;
-            
-            while(lectorFichero.hasNext()) {
+
+            int i = 0;
+
+            while (lectorFichero.hasNext()) {
                 lineas.add(lectorFichero.nextLine());
             }
-            
+
             lectorFichero.close();
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error al abrir/leer el fichero");
         }
-    
+        
+        
         try {
             FileWriter writer = new FileWriter(fichero);
+            String[] split = new String[7];
             
             for (String linea : lineas) {
-                if (!nombre.equals(linea)) {
+                split = linea.split(":");
+                if (!nombre.equals(split[0])) {
                     writer.write(linea + "\n");
                 }
             }
-            
+
             writer.close();
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error al abrir/sobreescribir el fichero");
         }
-        
+
     }
     
      public void listarMesas() {
