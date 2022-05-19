@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package asix11m03;
+package asix1.pkg1.m03;
 
 /**
  *
@@ -11,6 +11,7 @@ package asix11m03;
  */
 public class Admin {
      // ATRIBUTOS
+    private String rango;
     private String nombreU; // Nombre de usuario. Ejemplo: Juan123 (Servirá como id)
     private String contraseña; // Contraseña del usuario. Ejemplo: 123A
     private String nombre; // Nombre de la persona.
@@ -19,6 +20,7 @@ public class Admin {
     //CONSTRUCTORES
     
     public Admin() {
+        this.rango = "admin";
         this.nombreU = new String();
         this.contraseña = new String();
         this.nombre = new String();
@@ -27,6 +29,7 @@ public class Admin {
     
     
     public Admin(String nombreU, String contraseña) {
+        this.rango = "admin";
         this.nombreU= nombreU;
         this.contraseña = contraseña;
         this.nombre = new String();
@@ -34,6 +37,7 @@ public class Admin {
     }
 
     public Admin(String nombreU, String contraseña, String nombre, String apellidos) {
+        this.rango = "admin";
         this.nombreU = nombreU;
         this.contraseña = contraseña;
         this.nombre = nombre;
