@@ -79,6 +79,7 @@ public class ASIX11M03 {
 
     public static void main(String[] args) {
         
+        CamarerosDAO CCRUD = new CamarerosDAO();
         boolean salir = false;
         while (!salir) {
             int op = mLogin();
@@ -88,10 +89,12 @@ public class ASIX11M03 {
                     boolean salirAdmin = false;
                     while (!salirAdmin) {// Nuevo submenu para opciones de admin
                         int op1 = mAdmin();
-
+                        
                         switch (op1) {
                             case 1:// Insertar Camarero
-
+                                Camarero CamareroNuevo = new Camarero();
+                                CamareroNuevo.pedirDatosC();
+                                CCRUD.insertarCamareroNuevo(CamareroNuevo);
                                 break;
                             case 2:// Borrar Camarero
 
