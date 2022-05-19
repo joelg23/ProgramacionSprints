@@ -129,6 +129,45 @@ public class MesaDAO {
             
         }
         */
+     
+    }
+    public void modificarMesas(String nombre) {
+        
+        ArrayList<String> lineas = new ArrayList<>();
+        // Abrimos el fichero de texto para leerlo en memoria
+        try {
+            Scanner lectorFichero = new Scanner(fichero);
+
+            int i = 0;
+
+            while (lectorFichero.hasNext()) {
+                lineas.add(lectorFichero.nextLine());
+            }
+
+            lectorFichero.close();
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error al abrir/leer el fichero");
+        }
+
+        // Abrimos el fichero de texto para sobreescribirlo
+        // Actualizaremos la línea 4
+        try {
+            FileWriter writer = new FileWriter(fichero);
+            Mesa mesaNueva = new Mesa();
+            
+            for (String linea : lineas) {
+                if (nombre.equals(linea)) {
+                    writer.write(pedirDatos());
+                } else {
+                    writer.write(linea + "\n");
+                }
+            }
+
+            writer.close();
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error al abrir/sobreescribir el fichero");
+        }
+
     }
     
     
