@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package asix11m03;
+package asix1.pkg1.m03;
 
 /**
  *
@@ -98,13 +98,6 @@ public void eliminarMesa(String nombre) {
             System.out.println("No se ha encontrado el archivo.");
         }
         
-         /*
-        for (int i = 0; i < arrMesas.size(); i++) {
-            mesa = arrMesas.get(i);
-            System.out.println(mesa.toString());
-            
-        }
-        */
      
     }
     public void modificarMesa(String nombre) {
