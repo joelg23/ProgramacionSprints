@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package asix11m03;
+package asix1.pkg1.m03;
 
 /**
  *
@@ -12,14 +12,17 @@ package asix11m03;
 public class Camarero {
     
     // ATRIBUTOS
+    private String rango;
     private String nombreU; // Nombre de usuario. Ejemplo: Antonio123 (Servirá como id)
     private String contraseña; // Contraseña del usuario. Ejemplo: 123A
     private String nombre; // Nombre de la persona.
     private String apellidos; // Apellidos de la persona.
     private int salario; // Salario del camarero
+    
     //CONSTRUCTORES
     
     public Camarero() {
+        this.rango = "camarero";
         this.nombreU = new String();
         this.contraseña = new String();
         this.nombre = new String();
@@ -28,6 +31,7 @@ public class Camarero {
     
     
     public Camarero(String nombreU, String contraseña) {
+        this.rango = "camarero";
         this.nombreU= nombreU;
         this.contraseña = contraseña;
         this.nombre = new String();
@@ -35,6 +39,7 @@ public class Camarero {
     }
 
     public Camarero(String nombreU, String contraseña, String nombre, String apellidos, int salario) {
+        this.rango = "camarero";
         this.nombreU = nombreU;
         this.contraseña = contraseña;
         this.nombre = nombre;
