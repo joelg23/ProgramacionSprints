@@ -181,7 +181,9 @@ public class ASIX11M03 {
                                 CRUD.listarMesas();
                                 break;
                             case 4://Buscar Mesa
-                                
+                                System.out.print("Introduce nombre de la mesa a actualizar: ");
+                                String nombre1 = lector.next();
+                                CRUD.modificarMesa(nombre1);
                                 break;
 
                             case 5://Salir Camarero (Atrás)
