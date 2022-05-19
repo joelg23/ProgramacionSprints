@@ -141,7 +141,8 @@ public class ASIX11M03 {
                                 MCRUD.insertarMesaNueva(mesaNueva);
                                 break;
                             case 2://Borrar Mesa
-                                System.out.print("Introduce nombre de la mesa que quieres borrar: ");
+                                System.out.println("Borrando");
+                                System.out.print("Introduce nombre de la mesa: ");
                                 String nombre = lector.next();
                                 MCRUD.eliminarMesa(nombre);
                                 break;
@@ -149,7 +150,8 @@ public class ASIX11M03 {
                                 MCRUD.listarMesas();
                                 break;
                             case 4://Modificar Mesa
-                                System.out.print("Introduce nombre de la mesa a actualizar: ");
+                                System.out.println("Actualizando");
+                                System.out.print("Introduce nombre de la mesa: ");
                                 String nombre1 = lector.next();
    
                                 MCRUD.modificarMesa(nombre1);
