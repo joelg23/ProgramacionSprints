@@ -5,11 +5,13 @@
  */
 package asix1.pkg1.m03;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Ricardo Ramón y Joel Gutierrez
  */
-public class Camarero {
+public class Camarero implements Serializable{
     
     // ATRIBUTOS
     private String rango;
