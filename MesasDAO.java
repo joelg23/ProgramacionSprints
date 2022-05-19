@@ -26,18 +26,24 @@ public class MesasDAO {
 
     
     public void insertarMesaNueva(Mesa mesa) {
-        arrMesas.add(mesa);
+        if (!existeMesa(mesa.getNombre())) {
+            arrMesas.add(mesa);
 
-        try {
-            // El true al final indica que escribiremos al final del fichero añadiendo texto, si se omite sobreescribe todo el fichero
-            FileWriter writer = new FileWriter(fichero, true);
+            try {
+                // El true al final indica que escribiremos al final del fichero añadiendo texto, si se omite sobreescribe todo el fichero
+                FileWriter writer = new FileWriter(fichero, true);
 
-            writer.write(mesa.getNombre() + ";" + mesa.getDescripcion() + ";" + mesa.getTamanyo() + ";" + mesa.getSillas_adulto() + ";" + mesa.isSillas_ninyo() + ";" + mesa.isVentilador() + ";" + mesa.isJardin() + ";" + "\n");
+                writer.write(mesa.getNombre() + ";" + mesa.getDescripcion() + ";" + mesa.getTamanyo() + ";" + mesa.getSillas_adulto() + ";" + mesa.isSillas_ninyo() + ";" + mesa.isVentilador() + ";" + mesa.isJardin() + ";" + "\n");
 
-            writer.close();
+                writer.close();
 
-        } catch (IOException e) {
-            System.out.println("Ha ocurrido un error al crear/escribir en el fichero");
+            } catch (IOException e) {
+                System.out.println("Ha ocurrido un error al crear/escribir en el fichero");
+            }
+            System.out.println("Se ha insertado una mesa.");
+        }
+        else{
+            System.out.println("Ya existe una mesa con esa ID. Pruebe a introducir otra ID");
         }
 
     }
