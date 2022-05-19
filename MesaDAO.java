@@ -26,56 +26,48 @@ public class MesaDAO {
     public static ArrayList<Mesa> arrMesas = new ArrayList<Mesa>();
     ArrayList<String> lineas = new ArrayList<>();
     
-    public void insertarMesaNueva(Mesa mesa) {        
+    public void insertarMesaNueva(Mesa mesa) {
         arrMesas.add(mesa);
-        
+
         try {
             // El true al final indica que escribiremos al final del fichero añadiendo texto, si se omite sobreescribe todo el fichero
             FileWriter writer = new FileWriter(fichero, true);
-            
-            writer.write(mesa.getNombre()+":"+mesa.getDescripcion()+":"+mesa.getTamanyo()+":"+mesa.getSillas_adulto()+":"+mesa.isSillas_ninyo()+":"+mesa.isVentilador()+":"+mesa.isJardin()+":"+"\n");
-            
+
+            writer.write(mesa.getNombre() + ";" + mesa.getDescripcion() + ";" + mesa.getTamanyo() + ";" + mesa.getSillas_adulto() + ";" + mesa.isSillas_ninyo() + ";" + mesa.isVentilador() + ";" + mesa.isJardin() + ";" + "\n");
+
             writer.close();
-           
+
         } catch (IOException e) {
-
             System.out.println("Ha ocurrido un error al crear/escribir en el fichero");
-
         }
-        
+
     }
     
 public void eliminarMesa(String nombre) {
-        
         ArrayList<String> lineas = new ArrayList<>();
-        
         try {
             Scanner lectorFichero = new Scanner(fichero);
-
             int i = 0;
-
             while (lectorFichero.hasNext()) {
                 lineas.add(lectorFichero.nextLine());
             }
-
             lectorFichero.close();
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error al abrir/leer el fichero");
         }
-        
-        
+
         try {
             FileWriter writer = new FileWriter(fichero);
             String[] split = new String[7];
-            
+
             for (String linea : lineas) {
-                split = linea.split(":");
+                split = linea.split(";");
                 if (!nombre.equals(split[0])) {
                     writer.write(linea + "\n");
                 }
             }
-
             writer.close();
+
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error al abrir/sobreescribir el fichero");
         }
