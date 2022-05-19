@@ -127,7 +127,7 @@ public class ASIX11M03 {
                     break;
                 case 2://Opcion Login Camarero
 
-                    MesaDAO MCRUD = new MesaDAO();
+                    MesasDAO MCRUD = new MesasDAO();
                     boolean salirCamarero = false;
 
                     while (!salirCamarero) {//Nuevo submenu para opciones de camarero
@@ -141,8 +141,7 @@ public class ASIX11M03 {
                                 MCRUD.insertarMesaNueva(mesaNueva);
                                 break;
                             case 2://Borrar Mesa
-                                System.out.println("Borrando");
-                                System.out.print("Introduce nombre de la mesa: ");
+                                System.out.print("Introduce nombre de la mesa que quieres borrar: ");
                                 String nombre = lector.next();
                                 MCRUD.eliminarMesa(nombre);
                                 break;
@@ -150,8 +149,7 @@ public class ASIX11M03 {
                                 MCRUD.listarMesas();
                                 break;
                             case 4://Modificar Mesa
-                                System.out.println("Actualizando");
-                                System.out.print("Introduce nombre de la mesa: ");
+                                System.out.print("Introduce nombre de la mesa a actualizar: ");
                                 String nombre1 = lector.next();
    
                                 MCRUD.modificarMesa(nombre1);
