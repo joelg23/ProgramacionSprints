@@ -20,7 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class MesaDAO {
+public class MesasDAO {
     public static File fichero = new File("\\Mesas.txt"); // Ruta relativa
     
     public static ArrayList<Mesa> arrMesas = new ArrayList<Mesa>();
