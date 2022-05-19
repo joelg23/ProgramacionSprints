@@ -107,7 +107,7 @@ public void eliminarMesa(String nombre) {
         */
      
     }
-    public void modificarMesa(Mesa mesa,String nombre) {
+    public void modificarMesa(String nombre) {
         
                ArrayList<String> lineas = new ArrayList<>();
         
@@ -127,8 +127,10 @@ public void eliminarMesa(String nombre) {
         
         
         try {
-             FileWriter writer = new FileWriter(fichero);
+            FileWriter writer = new FileWriter(fichero);
             String[] split = new String[7];
+            Mesa mesa = new Mesa();
+            mesa.pedirDatos();
             
             for (String linea : lineas) {
                 split = linea.split(";");
