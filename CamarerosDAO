@@ -1,0 +1,76 @@
+package asix1.pkg1.m03;
+
+import java.io.*;
+
+/**
+ *
+ * @author Ricardo y Joel
+ */
+public class CamarerosDAO {
+    // GUARDAR FICHERO
+
+    public void insertarCamareroNuevo(Camarero camarero) {
+
+        try {
+            // A partir de aquí accederemos al fichero a guardar mediante la variable fichero
+            ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream("\\fichero.dat"));
+
+            // Creamos un nuevo array de Camareros
+            Camarero[] camareros = new Camarero[100];
+            for (int i = 0; i < camareros.length; i++) {
+                if (camareros[i] == null) {
+                camareros[i].rango = "camarero";
+                camareros[i].nombreU = camarero.getNombreU();
+                camareros[i].nombre = camarero.getNombre();
+                camareros[i].apellidos = camarero.getApellidos();
+                camareros[i].salario = camarero.getSalario();
+                }
+            }
+            
+            // Con writeObject escribimos directamente todo el array de Empleados
+            fichero.writeObject(camareros);
+
+            // Cerramos el fichero
+            fichero.close();
+
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error al guardar el fichero");
+        }
+    }
+/*
+    //LISTAR
+    // ------------
+    // LEER FICHERO
+    
+        try {
+            // A partir de aquí accederemos al fichero a leer mediante la variable fichero
+            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream("C:/Users/Peter/Desktop/fichero.dat"));
+
+        // Creamos un nuevo array de Empleados
+        // Y rellenamos con lo recuperado de leer el fichero mediante readObject
+        // readObject recibe todo un array de Empleados y por eso lo casteamos (Empleado[])
+        Empleado[] personal_recuperado = (Empleado[]) fichero.readObject();
+
+        // Recorremos todo el array de Empleados
+        for (Empleado empleado : personal_recuperado) {
+            // Tenemos en cuenta que algunas posiciones del array valen null
+            // En ese caso no leas la información del empleado
+            if (empleado != null) {
+                System.out.println("Nombre: " + empleado.nombre);
+                System.out.println("Sueldo: " + empleado.sueldo);
+                System.out.println("Fecha: " + empleado.dia + "/" + empleado.mes + "/" + empleado.año);
+                System.out.println("--------------------");
+            }
+        }
+
+        // Cerramos el fichero
+        fichero.close();
+
+    }
+    catch (Exception e
+
+    
+        ) {
+            System.out.println("Ha ocurrido un error al leer el fichero");
+    }*/
+}
