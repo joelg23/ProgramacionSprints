@@ -5,18 +5,20 @@
  */
 package asix1.pkg1.m03;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Ricardo Ramón y Joel Gutierrez
  */
-public class Admin {
+public class Admin implements Serializable{
      // ATRIBUTOS
     private String rango;
     private String nombreU; // Nombre de usuario. Ejemplo: Juan123 (Servirá como id)
     private String contraseña; // Contraseña del usuario. Ejemplo: 123A
     private String nombre; // Nombre de la persona.
     private String apellidos; // Apellidos de la persona.
-
+    
     //CONSTRUCTORES
     
     public Admin() {
