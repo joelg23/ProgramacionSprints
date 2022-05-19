@@ -6,26 +6,23 @@
 package asix1.pkg1.m03;
 
 import java.io.Serializable;
-import java.util.Scanner;
 
 /**
  *
  * @author Ricardo Ramón y Joel Gutierrez
  */
-public class Camarero implements Serializable{
-    
-    // ATRIBUTOS
-    String rango;
-    String nombreU; // Nombre de usuario. Ejemplo: Antonio123 (Servirá como id)
+public class Admin implements Serializable{
+     // ATRIBUTOS
+    private String rango;
+    private String nombreU; // Nombre de usuario. Ejemplo: Juan123 (Servirá como id)
     private String contraseña; // Contraseña del usuario. Ejemplo: 123A
-    String nombre; // Nombre de la persona.
-    String apellidos; // Apellidos de la persona.
-    int salario; // Salario del camarero
+    private String nombre; // Nombre de la persona.
+    private String apellidos; // Apellidos de la persona.
     
     //CONSTRUCTORES
     
-    public Camarero() {
-        this.rango = "camarero";
+    public Admin() {
+        this.rango = "admin";
         this.nombreU = new String();
         this.contraseña = new String();
         this.nombre = new String();
@@ -33,25 +30,23 @@ public class Camarero implements Serializable{
     }
     
     
-    public Camarero(String nombreU, String contraseña) {
-        this.rango = "camarero";
+    public Admin(String nombreU, String contraseña) {
+        this.rango = "admin";
         this.nombreU= nombreU;
         this.contraseña = contraseña;
         this.nombre = new String();
         this.apellidos = new String();
     }
 
-    public Camarero(String nombreU, String contraseña, String nombre, String apellidos, int salario) {
-        this.rango = "camarero";
+    public Admin(String nombreU, String contraseña, String nombre, String apellidos) {
+        this.rango = "admin";
         this.nombreU = nombreU;
         this.contraseña = contraseña;
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.salario = salario;
     }
-    
-    //GETTERS AND SETTERS
 
+    //GETTERS AND SETTERS
     public String getNombreU() {
         return nombreU;
     }
@@ -84,33 +79,8 @@ public class Camarero implements Serializable{
         this.apellidos = apellidos;
     }
 
-    public int getSalario() {
-        return salario;
-    }
-
-    public void setSalario(int salario) {
-        this.salario = salario;
-    }
-    
-        //Métodos
-    public void pedirDatosC() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Nombre Usuario: ");
-        setNombreU(sc.next());
-        System.out.print("Nombre camarero: ");
-        setNombre(sc.next());
-        System.out.print("Apellidos camarero: ");
-        setApellidos(sc.next());
-        System.out.print("Salario: ");
-        setSalario(sc.nextInt());       
-        }   
-
-    
-        
-    
     @Override
     public String toString() {
-        return "Camarero{" + "nombreU=" + nombreU + ", contrase\u00f1a=" + contraseña + ", nombre=" + nombre + ", apellidos=" + apellidos + '}';
+        return "Admin{" + "nombreU=" + nombreU + ", contrase\u00f1a=" + contraseña + ", nombre=" + nombre + ", apellidos=" + apellidos + '}';
     }
-    
 }
