@@ -27,16 +27,13 @@ public class MesaDAO {
     ArrayList<String> lineas = new ArrayList<>();
     
     public void insertarMesaNueva(Mesa mesa) {        
+        arrMesas.add(mesa);
+        
         try {
             // El true al final indica que escribiremos al final del fichero añadiendo texto, si se omite sobreescribe todo el fichero
             FileWriter writer = new FileWriter(fichero, true);
             
-            //writer.write(mesa.getNombre()+";"+mesa.getDescripcion()+";"+mesa.getTamanyo()+";"+mesa.getSillas_adulto()+";"+mesa.isSillas_ninyo()+";"+mesa.isVentilador()+";"+mesa.isJardin()+";"+"\n");
-            
-            arrMesas.add(mesa);
-            for (int i = 0; i < arrMesas.size(); i++) {
-                writer.write(mesa.getNombre()+":"+mesa.getDescripcion()+":"+mesa.getTamanyo()+":"+mesa.getSillas_adulto()+":"+mesa.isSillas_ninyo()+":"+mesa.isVentilador()+":"+mesa.isJardin()+":"+"\n");
-            }
+            writer.write(mesa.getNombre()+":"+mesa.getDescripcion()+":"+mesa.getTamanyo()+":"+mesa.getSillas_adulto()+":"+mesa.isSillas_ninyo()+":"+mesa.isVentilador()+":"+mesa.isJardin()+":"+"\n");
             
             writer.close();
            
