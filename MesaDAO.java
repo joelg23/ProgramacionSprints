@@ -115,10 +115,10 @@ public void eliminarMesa(String nombre) {
         */
      
     }
-    public void modificarMesas(String nombre) {
+    public void modificarMesa(Mesa mesa,String nombre) {
         
-        ArrayList<String> lineas = new ArrayList<>();
-        // Abrimos el fichero de texto para leerlo en memoria
+               ArrayList<String> lineas = new ArrayList<>();
+        
         try {
             Scanner lectorFichero = new Scanner(fichero);
 
@@ -132,17 +132,18 @@ public void eliminarMesa(String nombre) {
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error al abrir/leer el fichero");
         }
-
-        // Abrimos el fichero de texto para sobreescribirlo
-        // Actualizaremos la línea 4
+        
+        
         try {
-            FileWriter writer = new FileWriter(fichero);
-            Mesa mesaNueva = new Mesa();
+             FileWriter writer = new FileWriter(fichero);
+            String[] split = new String[7];
             
             for (String linea : lineas) {
-                if (nombre.equals(linea)) {
-                    writer.write(pedirDatos());
-                } else {
+                split = linea.split(";");
+                if (nombre.equals(split[0])) {
+                    writer.write(mesa.getNombre()+";"+mesa.getDescripcion()+";"+mesa.getTamanyo()+";"+mesa.getSillas_adulto()+";"+mesa.isSillas_ninyo()+";"+mesa.isVentilador()+";"+mesa.isJardin()+";"+"\n");
+                }
+                else{
                     writer.write(linea + "\n");
                 }
             }
@@ -151,7 +152,6 @@ public void eliminarMesa(String nombre) {
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error al abrir/sobreescribir el fichero");
         }
-
     }
     
     
