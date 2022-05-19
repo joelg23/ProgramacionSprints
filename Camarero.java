@@ -6,6 +6,7 @@
 package asix1.pkg1.m03;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
 /**
  *
@@ -14,12 +15,12 @@ import java.io.Serializable;
 public class Camarero implements Serializable{
     
     // ATRIBUTOS
-    private String rango;
-    private String nombreU; // Nombre de usuario. Ejemplo: Antonio123 (Servirá como id)
+    String rango;
+    String nombreU; // Nombre de usuario. Ejemplo: Antonio123 (Servirá como id)
     private String contraseña; // Contraseña del usuario. Ejemplo: 123A
-    private String nombre; // Nombre de la persona.
-    private String apellidos; // Apellidos de la persona.
-    private int salario; // Salario del camarero
+    String nombre; // Nombre de la persona.
+    String apellidos; // Apellidos de la persona.
+    int salario; // Salario del camarero
     
     //CONSTRUCTORES
     
@@ -90,8 +91,22 @@ public class Camarero implements Serializable{
     public void setSalario(int salario) {
         this.salario = salario;
     }
+    
+        //Métodos
+    public void pedirDatosC() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Nombre Usuario: ");
+        setNombreU(sc.next());
+        System.out.print("Nombre camarero: ");
+        setNombre(sc.next());
+        System.out.print("Apellidos camarero: ");
+        setApellidos(sc.next());
+        System.out.print("Salario: ");
+        setSalario(sc.nextInt());       
+        }   
 
     
+        
     
     @Override
     public String toString() {
