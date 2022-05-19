@@ -13,7 +13,7 @@ public class CamarerosDAO {
 
         try {
             // A partir de aquí accederemos al fichero a guardar mediante la variable fichero
-            ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream("\\fichero.dat"));
+            ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream("C:\\fichero.dat"));
 
             // Creamos un nuevo array de Camareros
             Camarero[] camareros = new Camarero[100];
