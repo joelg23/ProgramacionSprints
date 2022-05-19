@@ -141,5 +141,39 @@ public void eliminarMesa(String nombre) {
         }
     }
     
+    public boolean existeMesa(String nombre) {
+        boolean existe = false;
+        
+        ArrayList<String> lineas = new ArrayList<>();
+        try {
+            Scanner lectorFichero = new Scanner(fichero);
+            int i = 0;
+            while (lectorFichero.hasNext()) {
+                lineas.add(lectorFichero.nextLine());
+            }
+            lectorFichero.close();
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error al abrir/leer el fichero");
+        }
+
+        try {
+            FileReader leerFichero = new FileReader(fichero);
+            String[] split = new String[7];
+
+            for (String linea : lineas) {
+                split = linea.split(";");
+                if (nombre.equals(split[0])) {
+                    existe = true;
+                }
+            }
+            leerFichero.close();
+
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error al abrir/sobreescribir el fichero");
+        }
+
+        return existe;
+    }
+    
     
 }
