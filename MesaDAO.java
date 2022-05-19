@@ -24,7 +24,7 @@ public class MesaDAO {
     public static File fichero = new File("\\Mesas.txt"); // Ruta relativa
     
     public static ArrayList<Mesa> arrMesas = new ArrayList<Mesa>();
-    ArrayList<String> lineas = new ArrayList<>();
+
     
     public void insertarMesaNueva(Mesa mesa) {
         arrMesas.add(mesa);
