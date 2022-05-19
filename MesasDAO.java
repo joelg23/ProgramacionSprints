@@ -9,15 +9,14 @@ package asix1.pkg1.m03;
  *
  * @author Ricardo Ramón y Joel Gutierrez
  */
-import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 
 public class MesasDAO {
@@ -139,40 +138,6 @@ public void eliminarMesa(String nombre) {
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error al abrir/sobreescribir el fichero");
         }
-    }
-    
-    public boolean existeMesa(String nombre) {
-        boolean existe = false;
-        
-        ArrayList<String> lineas = new ArrayList<>();
-        try {
-            Scanner lectorFichero = new Scanner(fichero);
-            int i = 0;
-            while (lectorFichero.hasNext()) {
-                lineas.add(lectorFichero.nextLine());
-            }
-            lectorFichero.close();
-        } catch (Exception e) {
-            System.out.println("Ha ocurrido un error al abrir/leer el fichero");
-        }
-
-        try {
-            FileReader leerFichero = new FileReader(fichero);
-            String[] split = new String[7];
-
-            for (String linea : lineas) {
-                split = linea.split(";");
-                if (nombre.equals(split[0])) {
-                    existe = true;
-                }
-            }
-            leerFichero.close();
-
-        } catch (Exception e) {
-            System.out.println("Ha ocurrido un error al abrir/sobreescribir el fichero");
-        }
-
-        return existe;
     }
     
     
