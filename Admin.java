@@ -1,6 +1,7 @@
 package asix1.pkg1.m03;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
 /**
  *
@@ -13,6 +14,8 @@ public class Admin implements Serializable{
     private String contraseña; // Contraseña del usuario. Ejemplo: 123A
     private String nombre; // Nombre de la persona.
     private String apellidos; // Apellidos de la persona.
+    private int salario;
+    private String contrseña;
     
     //CONSTRUCTORES
     
@@ -74,6 +77,46 @@ public class Admin implements Serializable{
         this.apellidos = apellidos;
     }
 
+    public String getRango() {
+        return rango;
+    }
+
+    public void setRango(String rango) {
+        this.rango = rango;
+    }
+
+    public int getSalario() {
+        return salario;
+    }
+
+    public void setSalario(int salario) {
+        this.salario = salario;
+    }
+
+    public String getContrseña() {
+        return contrseña;
+    }
+
+    public void setContrseña(String contrseña) {
+        this.contrseña = contrseña;
+    }
+    
+
+    public void pedirDatosA() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Usuario: ");
+        setNombreU(sc.next());
+        System.out.print("Contraseña: ");
+        setContraseña(sc.next());
+        System.out.print("Nombre: ");
+        setNombre(sc.next());
+        System.out.print("Apellidos: ");
+        setApellidos(sc.next());
+        System.out.print("Salario: ");
+        setSalario(sc.nextInt());
+        
+    }
+    
     @Override
     public String toString() {
         return "Admin{" + "nombreU=" + nombreU + ", contrase\u00f1a=" + contraseña + ", nombre=" + nombre + ", apellidos=" + apellidos + '}';
