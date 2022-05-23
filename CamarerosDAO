@@ -1,6 +1,7 @@
 package asix1.pkg1.m03;
 
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -8,15 +9,17 @@ import java.io.*;
  */
 public class CamarerosDAO {
 
+    public static String FICHERO = "C:\\Users\\Luis\\Desktop\\Camareros.dat";
+     
  public void insertarCamareroNuevo(Camarero camarero) {
         
-         ArrayList<String> lineas = new ArrayList<>();
+        Camarero[] camareros = new Camarero[100];
         //Lectura
         try {
-            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream("C:\\Users\\alumne\\Desktop\\Camareros.dat"));
+            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
             
             Camarero[] camareros_leer = (Camarero[]) fichero.readObject();
-            lineas.equals(camareros_leer);
+            camareros.equals(camareros_leer);
             
         }catch (Exception ex) {
             System.out.println("Error al leer fichero");
@@ -24,10 +27,10 @@ public class CamarerosDAO {
         
         try {
             // A partir de aquí accederemos al fichero a guardar mediante la variable fichero
-            ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream("C:\\Users\\alumne\\Desktop\\Camareros.dat"));
-
+            ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
+            
             // Creamos un nuevo array de Camareros
-            Camarero[] camareros = new Camarero[100];
+            
 
             for (int i = 0; i < camareros.length; i++) {
                 if (camareros[i] == null) {
@@ -36,11 +39,11 @@ public class CamarerosDAO {
                     camareros[i].nombre = camarero.getNombre();
                     camareros[i].apellidos = camarero.getApellidos();
                     camareros[i].salario = camarero.getSalario();
+                    camareros[i].contraseña = camarero.getContraseña();
                     camareros[i].rango = "camarero";
                     i = camareros.length;
                 }
             }
-            lineas.add(camarero);
 
             // Con writeObject escribimos directamente todo el array de Empleados
             fichero.writeObject(camareros);
@@ -56,7 +59,7 @@ public class CamarerosDAO {
     public void listarCamareros() {//Lista los camareros
         try {
             // Accedemos al fichero a leer mediante la variable fichero
-            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream("C:\\Users\\alumne\\Desktop\\users.dat"));
+            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
             
             
             // Creamos un nuevo array de Camareros
@@ -92,7 +95,7 @@ public class CamarerosDAO {
         ArrayList<String> lineas = new ArrayList<>();
         //Lectura
         try {
-            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream("C:\\Users\\alumne\\Desktop\\Camareros.dat"));
+            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
             
             Camarero[] camareros_leer = (Camarero[]) fichero.readObject();
             lineas.equals(camareros_leer);
@@ -103,8 +106,8 @@ public class CamarerosDAO {
         
         //Escritura
         try {
-           ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream("C:\\Users\\alumne\\Desktop\\Camareros.dat"));
-            String[] split = new String[6];
+           ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
+            String[] split = new String[7];
 
             for (String linea : lineas) {
                 split = linea.split(" ");
@@ -122,7 +125,7 @@ public class CamarerosDAO {
     public void modificarCamarero(String usuario) {
         if (!existeCamarero(usuario)) {
             try {
-                ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream("C:\\Users\\alumne\\Desktop\\Camareros.dat"));
+                ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
 
                 
 
@@ -140,7 +143,7 @@ public class CamarerosDAO {
         boolean existe = false;
         
         try {
-            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream("C:\\Users\\alumne\\Desktop\\Camareros.dat"));
+            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
             
             Camarero[] camareros_leer = (Camarero[]) fichero.readObject();
  
