@@ -93,25 +93,31 @@ public class Camarero implements Serializable{
     }
     
         //Métodos
-  public void pedirDatosC() {
+public void pedirDatosC() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("* Camarero * ");
         System.out.print("Usuario: ");
         setNombreU(sc.next());
+        System.out.println("Contraseña: ");
+        setContraseña(sc.next());
         System.out.print("Nombre: ");
         setNombre(sc.next());
         System.out.print("Apellidos: ");
         setApellidos(sc.next());
         System.out.print("Salario: ");
-        setSalario(sc.nextInt());       
-        } 
+        setSalario(sc.nextInt());
+    }
 
     
         
     
     @Override
-    public String toString() {
-        return "Camarero{" + "nombreU=" + nombreU + ", contrase\u00f1a=" + contraseña + ", nombre=" + nombre + ", apellidos=" + apellidos + '}';
+        public String toString() {
+        String x = new String();
+		x += "Usuario: " + getNombreU();
+		x += ", Nombre: " + getNombre();
+		x += ", Apellidos: " + getApellidos();
+		x += ", Salario: " + getSalario();
+		return x;
     }
     
 }
