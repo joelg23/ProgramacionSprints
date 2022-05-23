@@ -116,6 +116,22 @@ public class CamarerosDAO {
         }
     }
     
+    public void modificarCamarero(String usuario) {
+        if (!existeCamarero(usuario)) {
+            try {
+                ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream("C:\\Users\\alumne\\Desktop\\Camareros.dat"));
+
+                
+
+                
+            } catch (Exception ex) {
+                System.out.println("Error al leer fichero");
+            }
+        } else {
+            System.out.println("No existe ese usuario.");
+        }
+
+    }
         
        public boolean existeCamarero(String usuario)  {//Detecta si existe o no el camarero
         boolean existe = false;
