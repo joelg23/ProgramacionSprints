@@ -7,42 +7,53 @@ import java.io.*;
  * @author Ricardo y Joel
  */
 public class CamarerosDAO {
-    // GUARDAR FICHERO
 
-public void insertarCamareroNuevo(Camarero camarero) {
+ public void insertarCamareroNuevo(Camarero camarero) {
+        
+         ArrayList<String> lineas = new ArrayList<>();
+        //Lectura
+        try {
+            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream("C:\\Users\\alumne\\Desktop\\Camareros.dat"));
+            
+            Camarero[] camareros_leer = (Camarero[]) fichero.readObject();
+            lineas.equals(camareros_leer);
+            
+        }catch (Exception ex) {
+            System.out.println("Error al leer fichero");
+        }
         
         try {
             // A partir de aquí accederemos al fichero a guardar mediante la variable fichero
             ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream("C:\\Users\\alumne\\Desktop\\Camareros.dat"));
 
             // Creamos un nuevo array de Camareros
-
             Camarero[] camareros = new Camarero[100];
-            
+
             for (int i = 0; i < camareros.length; i++) {
                 if (camareros[i] == null) {
-                camareros[i] = new Camarero();
-                camareros[i].nombreU = camarero.getNombreU();
-                camareros[i].nombre = camarero.getNombre();
-                camareros[i].apellidos = camarero.getApellidos();
-                camareros[i].salario = camarero.getSalario();
-                camareros[i].rango = "camarero";
-                i = camareros.length;
+                    camareros[i] = new Camarero();
+                    camareros[i].nombreU = camarero.getNombreU();
+                    camareros[i].nombre = camarero.getNombre();
+                    camareros[i].apellidos = camarero.getApellidos();
+                    camareros[i].salario = camarero.getSalario();
+                    camareros[i].rango = "camarero";
+                    i = camareros.length;
                 }
             }
-            
-            
+            lineas.add(camarero);
+
             // Con writeObject escribimos directamente todo el array de Empleados
             fichero.writeObject(camareros);
 
             // Cerramos el fichero
             fichero.close();
-            
+
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error al guardar el fichero");
         }
     }
-    public void listarCamareros() {
+    
+    public void listarCamareros() {//Lista los camareros
         try {
             // Accedemos al fichero a leer mediante la variable fichero
             ObjectInputStream fichero = new ObjectInputStream(new FileInputStream("C:\\Users\\alumne\\Desktop\\users.dat"));
@@ -73,7 +84,40 @@ public void insertarCamareroNuevo(Camarero camarero) {
 
     }
     
-       public boolean existeCamarero(String usuario)  {
+        
+    public void eliminarCamarero(String nombre) {//Elimina el camarero con nombre de usuario pedido
+        ArrayList<String> lineas = new ArrayList<>();
+        //Lectura
+        try {
+            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream("C:\\Users\\alumne\\Desktop\\Camareros.dat"));
+            
+            Camarero[] camareros_leer = (Camarero[]) fichero.readObject();
+            lineas.equals(camareros_leer);
+            
+        }catch (Exception ex) {
+            System.out.println("Error al leer fichero");
+        }
+        
+        //Escritura
+        try {
+           ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream("C:\\Users\\alumne\\Desktop\\Camareros.dat"));
+            String[] split = new String[6];
+
+            for (String linea : lineas) {
+                split = linea.split(" ");
+                if (!nombre.equals(split[0])) {
+                    fichero.writeObject(linea+"\n");
+                }
+            }
+            fichero.close();
+
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error al abrir/sobreescribir el fichero");
+        }
+    }
+    
+        
+       public boolean existeCamarero(String usuario)  {//Detecta si existe o no el camarero
         boolean existe = false;
         
         try {
