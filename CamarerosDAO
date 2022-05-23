@@ -25,6 +25,7 @@ public class CamarerosDAO {
                 camareros[i].apellidos = camarero.getApellidos();
                 camareros[i].salario = camarero.getSalario();
                 camareros[i].rango = "camarero";
+                i = 100;
                 }
             }
             
