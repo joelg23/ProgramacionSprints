@@ -40,7 +40,7 @@ public class CamarerosDAO {
             System.out.println("Ha ocurrido un error al guardar el fichero");
         }
     }
-public void listarCamareros() {
+    public void listarCamareros() {
         try {
             // A partir de aquí accederemos al fichero a leer mediante la variable fichero
             ObjectInputStream fichero = new ObjectInputStream(new FileInputStream("C:\\Users\\alumne\\Desktop\\users.dat"));
@@ -69,5 +69,26 @@ public void listarCamareros() {
             System.out.println("Ha ocurrido un error al leer el fichero");
         }
 
+    }
+    
+       public boolean existeCamarero(String usuario)  {
+        boolean existe = false;
+        
+        try {
+            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream("C:\\Users\\alumne\\Desktop\\Camareros.dat"));
+            
+            Camarero[] camareros_leer = (Camarero[]) fichero.readObject();
+ 
+            // Recorremos todo el array de Camareros     
+            for (Camarero e : camareros_leer){
+                if (e != null && e.nombreU.equals(usuario)){
+                    existe = true; 
+                }
+            }
+        }catch (Exception ex) {
+            System.out.println("Error al leer fichero");
+        }
+                
+        return existe;
     }
 }
