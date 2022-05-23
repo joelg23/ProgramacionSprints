@@ -97,7 +97,9 @@ public class ASIX11M03 {
                                 CCRUD.insertarCamareroNuevo(CamareroNuevo);
                                 break;
                             case 2:// Borrar Camarero
-
+                                System.out.print("Introduce usuario camarero a borrar: ");
+                                String nombre = lector.next();
+                                CCRUD.eliminarCamarero(nombre);
                                 break;
                             case 3:// Listar Camareros
                                 CCRUD.listarCamareros();
