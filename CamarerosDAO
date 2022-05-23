@@ -9,14 +9,16 @@ import java.io.*;
 public class CamarerosDAO {
     // GUARDAR FICHERO
 
-  public void insertarCamareroNuevo(Camarero camarero) {
+public void insertarCamareroNuevo(Camarero camarero) {
         
         try {
             // A partir de aquí accederemos al fichero a guardar mediante la variable fichero
             ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream("C:\\Users\\alumne\\Desktop\\Camareros.dat"));
 
             // Creamos un nuevo array de Camareros
+
             Camarero[] camareros = new Camarero[100];
+            
             for (int i = 0; i < camareros.length; i++) {
                 if (camareros[i] == null) {
                 camareros[i] = new Camarero();
@@ -25,7 +27,7 @@ public class CamarerosDAO {
                 camareros[i].apellidos = camarero.getApellidos();
                 camareros[i].salario = camarero.getSalario();
                 camareros[i].rango = "camarero";
-                i = 100;
+                i = camareros.length;
                 }
             }
             
