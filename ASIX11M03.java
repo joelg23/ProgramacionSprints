@@ -100,7 +100,7 @@ public class ASIX11M03 {
 
                                 break;
                             case 3:// Listar Camareros
-
+                                CCRUD.listarCamareros();
                                 break;
                             case 4:// Modificar Camarero
 
