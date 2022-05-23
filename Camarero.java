@@ -13,7 +13,7 @@ public class Camarero implements Serializable{
     // ATRIBUTOS
     String rango;
     String nombreU; // Nombre de usuario. Ejemplo: Antonio123 (Servirá como id)
-    private String contraseña; // Contraseña del usuario. Ejemplo: 123A
+    String contraseña; // Contraseña del usuario. Ejemplo: 123A
     String nombre; // Nombre de la persona.
     String apellidos; // Apellidos de la persona.
     int salario; // Salario del camarero
@@ -93,7 +93,7 @@ public void pedirDatosC() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Usuario: ");
         setNombreU(sc.next());
-        System.out.println("Contraseña: ");
+        System.out.print("Contraseña: ");
         setContraseña(sc.next());
         System.out.print("Nombre: ");
         setNombre(sc.next());
