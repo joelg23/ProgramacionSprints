@@ -103,7 +103,9 @@ public class ASIX11M03 {
                                 CCRUD.listarCamareros();
                                 break;
                             case 4:// Modificar Camarero
-
+                                System.out.print("Introduce usuario camarero a modificar: ");
+                                String usuario = lector.next();
+                                CCRUD.modificarCamarero(usuario);
                                 break;
                             case 5:// Insertar Admin
 
