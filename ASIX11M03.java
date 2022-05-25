@@ -80,6 +80,7 @@ public class ASIX11M03 {
     public static void main(String[] args) {
         
         CamarerosDAO CCRUD = new CamarerosDAO();
+        AdminsDAO ACRUD = new AdminsDAO();
         boolean salir = false;
         while (!salir) {
             int op = mLogin();
@@ -92,9 +93,9 @@ public class ASIX11M03 {
                         
                         switch (op1) {
                             case 1:// Insertar Camarero
-                                Camarero CamareroNuevo = new Camarero();
-                                CamareroNuevo.pedirDatosC();
-                                CCRUD.insertarCamareroNuevo(CamareroNuevo);
+                                Camarero camareroNuevo = new Camarero();
+                                camareroNuevo.pedirDatosC();
+                                CCRUD.insertarCamareroNuevo(camareroNuevo);
                                 break;
                             case 2:// Borrar Camarero
                                 System.out.print("Introduce usuario camarero a borrar: ");
@@ -110,16 +111,22 @@ public class ASIX11M03 {
                                 CCRUD.modificarCamarero(usuario);
                                 break;
                             case 5:// Insertar Admin
-
+                                Admin adminNuevo = new Admin();
+                                adminNuevo.pedirDatosA();
+                                ACRUD.insertarAdminNuevo(adminNuevo);
                                 break;
                             case 6:// Borrar Admin
-
+                                System.out.print("Introduce usuario camarero a borrar: ");
+                                String nombre1 = lector.next();
+                                ACRUD.eliminarAdmin(nombre1);
                                 break;
                             case 7:// Listar Admin
-
+                                ACRUD.listarAdmins();
                                 break;
                             case 8:// Modificar Admin
-
+                                System.out.print("Introduce usuario camarero a modificar: ");
+                                String usuario1 = lector.next();
+                                ACRUD.modificarAdmin(usuario1);
                                 break;
 
                             case 9:// Atrás
