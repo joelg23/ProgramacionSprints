@@ -1,10 +1,163 @@
 package asix1.pkg1.m03;
 
-/**
- *
- * @author Joel
- */
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+
+
 public class AdminDAO {
     
+    public static String FICHERO = "C:\\Users\\Alumne\\Desktop\\Admins.dat";
+     
+ public void insertarAdminNuevo(Admin admin) {
+        
+        Admin[] admins = new Admin[100];
+        //Lectura
+        try {
+            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
+            
+            Admin[] admins_leer = (Admin[]) fichero.readObject();
+            admins.equals(admins_leer);
+            
+        }catch (Exception ex) {
+            System.out.println("Error al leer fichero");
+        }
+        
+        try {
+            // A partir de aquí accederemos al fichero a guardar mediante la variable fichero
+            ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
+            
+            // Creamos un nuevo array de Admins
+            
+
+            for (int i = 0; i < admins.length; i++) {
+                if (admins[i] == null) {
+                    admins[i] = new Admin();
+                    admins[i].nombreU = admin.getNombreU();
+                    admins[i].nombre = admin.getNombre();
+                    admins[i].apellidos = admin.getApellidos();
+                    admins[i].salario = admin.getSalario();
+                    admins[i].contraseña = admin.getContraseña();
+                    admins[i].rango = "admin";
+                    i = admins.length;
+                }
+            }
+
+            // Con writeObject escribimos directamente todo el array de Empleados
+            fichero.writeObject(admins);
+
+            // Cerramos el fichero
+            fichero.close();
+
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error al guardar el fichero");
+        }
+    }
+    
+    public void listarAdmins() {//Lista los admins
+        try {
+            // Accedemos al fichero a leer mediante la variable fichero
+            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
+            
+            
+            // Creamos un nuevo array de Admins
+            // Y rellenamos con lo recuperado de leer el fichero mediante readObject
+            // readObject recibe todo un array de Admins y por eso lo casteamos (Admin[])
+
+            Admin[] admins_leer = (Admin[]) fichero.readObject();
+ 
+            // Recorremos todo el array de Admins     
+            for (Admin e : admins_leer) {
+                if (e != null) {
+                    System.out.println(e.toString());
+                    /*
+                    System.out.println("Usuario: " + e.nombreU);
+                    System.out.println("Nombre: " + e.nombre);
+                    System.out.println("Apellidos: " + e.apellidos);
+                    System.out.println("Salario: " + e.salario);
+                    */
+                }
+            }
+            
+            // Cerramos el fichero
+            fichero.close();
+
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error al leer el fichero");
+        }
+
+    }
+    
+        
+    public void eliminarAdmin(String nombre) {//Elimina el admin con nombre de usuario pedido
+        ArrayList<String> lineas = new ArrayList<>();
+        //Lectura
+        try {
+            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
+            
+            Admin[] admins_leer = (Admin[]) fichero.readObject();
+            lineas.equals(admins_leer);
+            
+        }catch (Exception ex) {
+            System.out.println("Error al leer fichero");
+        }
+        
+        //Escritura
+        try {
+           ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
+            String[] split = new String[7];
+
+            for (String linea : lineas) {
+                split = linea.split(" ");
+                if (!nombre.equals(split[0])) {
+                    fichero.writeObject(linea+"\n");
+                }
+            }
+            fichero.close();
+
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error al abrir/sobreescribir el fichero");
+        }
+    }
+    
+    public void modificarAdmin(String usuario) {
+        if (!existeAdmin(usuario)) {
+            try {
+                ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
+
+                
+
+                
+            } catch (Exception ex) {
+                System.out.println("Error al leer fichero");
+            }
+        } else {
+            System.out.println("No existe ese usuario.");
+        }
+
+    }
+        
+       public boolean existeAdmin(String usuario)  {//Detecta si existe o no el admin
+        boolean existe = false;
+        
+        try {
+            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
+            
+            Admin[] admins_leer = (Admin[]) fichero.readObject();
+ 
+            // Recorremos todo el array de Admins     
+            for (Admin e : admins_leer){
+                if (e != null && e.nombreU.equals(usuario)){
+                    existe = true; 
+                }
+            }
+        }catch (Exception ex) {
+            System.out.println("Error al leer fichero");
+        }
+                
+        return existe;
+    }
     
 }
