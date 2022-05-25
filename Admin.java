@@ -9,12 +9,12 @@ import java.util.Scanner;
  */
 public class Admin implements Serializable{
      // ATRIBUTOS
-    private String rango;
-    private String nombreU; // Nombre de usuario. Ejemplo: Juan123 (Servirá como id)
-    private String contraseña; // Contraseña del usuario. Ejemplo: 123A
-    private String nombre; // Nombre de la persona.
-    private String apellidos; // Apellidos de la persona.
-    private int salario;
+    String rango;
+    String nombreU; // Nombre de usuario. Ejemplo: Juan123 (Servirá como id)
+    String contraseña; // Contraseña del usuario. Ejemplo: 123A
+    String nombre; // Nombre de la persona.
+    String apellidos; // Apellidos de la persona.
+    int salario;
     private String contrseña;
     
     //CONSTRUCTORES
