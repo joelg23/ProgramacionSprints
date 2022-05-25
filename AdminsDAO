@@ -9,9 +9,9 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Joel y Ricardo
+ * @author Joel
  */
-public class AdminDAO {
+public class AdminsDAO {
 
     public static String FICHERO = "C:\\Users\\Alumne\\Desktop\\Admins.dat";
 
