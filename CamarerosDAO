@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class CamarerosDAO {
 
-    public static String FICHERO = "C:\\Users\\Alumne\\Desktop\\Camareros.dat";
+    public static String FICHERO = "C:\\Users\\Luis\\Desktop\\Camareros.dat";
      
  public void insertarCamareroNuevo(Camarero camarero) {
         
@@ -122,19 +122,35 @@ public class CamarerosDAO {
         }
     }
     
-    public void modificarCamarero(String usuario) {
-        if (!existeCamarero(usuario)) {
-            try {
-                ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
-
-                
-
-                
-            } catch (Exception ex) {
-                System.out.println("Error al leer fichero");
+    public void modificarCamarero(String nombre) {
+        ArrayList<String> lineas = new ArrayList<>();
+        Camarero camareroModificado = new Camarero();
+        //Lectura
+        try {
+            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
+            
+            Camarero[] camareros_leer = (Camarero[]) fichero.readObject();
+            lineas.equals(camareros_leer);
+            
+        }catch (Exception ex) {
+            System.out.println("Error al leer fichero");
+        }
+        
+        //Escritura
+        try {
+           ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
+            String[] split = new String[7];
+            camareroModificado.pedirDatosC();
+            for (String linea : lineas) {
+                split = linea.split(" ");
+                if (!nombre.equals(split[0])) {
+                    fichero.writeObject(camareroModificado+"\n");
+                }
             }
-        } else {
-            System.out.println("No existe ese usuario.");
+            fichero.close();
+
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error al abrir/sobreescribir el fichero");
         }
 
     }
