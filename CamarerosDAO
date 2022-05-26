@@ -106,10 +106,9 @@ public class CamarerosDAO {
         //Escritura
         try {
            ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
-            String[] split = new String[7];
-
+            
             for (Camarero linea : camareros) {
-                if (!nombre.equals(linea)) {
+                if (!nombre.equals(linea.getNombreU())) {
                     fichero.writeObject(linea+"\n");
                 }
             }
