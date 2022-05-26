@@ -9,11 +9,11 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Joel
+ * @author Joel y Ricardo
  */
 public class AdminsDAO {
 
-    public static String FICHERO = "C:\\Users\\Alumne\\Desktop\\Admins.dat";
+    public static String FICHERO = "C:\\Users\\alumne\\Desktop\\Admins.dat";
 
     public void insertarAdminNuevo(Admin admin) {
 
@@ -22,9 +22,8 @@ public class AdminsDAO {
         try {
             ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
 
-            Admin[] admins_leer = (Admin[]) fichero.readObject();
-            admins.equals(admins_leer);
-
+            admins = (Admin[]) fichero.readObject();
+            
         } catch (Exception ex) {
             System.out.println("Error al leer fichero");
         }
