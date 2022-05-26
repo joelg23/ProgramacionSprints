@@ -18,6 +18,7 @@ public class AdminsDAO {
     public void insertarAdminNuevo(Admin admin) {
 
         Admin[] admins = new Admin[100];
+        
         //Lectura
         try {
             ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
@@ -27,7 +28,8 @@ public class AdminsDAO {
         } catch (Exception ex) {
             System.out.println("Error al leer fichero");
         }
-
+        
+        //Escritura
         try {
             // A partir de aquí accederemos al fichero a guardar mediante la variable fichero
             ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
@@ -58,6 +60,8 @@ public class AdminsDAO {
     }
 
     public void listarAdmins() {//Lista los admins
+        
+        //Lectura
         try {
             // Accedemos al fichero a leer mediante la variable fichero
             ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
@@ -91,6 +95,7 @@ public class AdminsDAO {
 
     public void eliminarAdmin(String nombre) {//Elimina el admin con nombre de usuario pedido
         ArrayList<String> lineas = new ArrayList<>();
+        
         //Lectura
         try {
             ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
@@ -123,6 +128,7 @@ public class AdminsDAO {
     public void modificarAdmin(String nombre) {
         ArrayList<String> lineas = new ArrayList<>();
         Admin adminModificado = new Admin();
+        
         //Lectura
         try {
             ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
