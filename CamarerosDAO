@@ -9,13 +9,13 @@ import java.util.ArrayList;
  */
 public class CamarerosDAO {
 
-    public static String FICHERO = "C:\\Users\\jogu3955\\Desktop\\Camareros.dat";
+    public static String FICHERO = "C:\\Users\\alumne\\Desktop\\Camareros.dat";
      
  public void insertarCamareroNuevo(Camarero camarero) {
         
         Camarero[] camareros = new Camarero[100];
         
-        //Lectura
+       //Lectura
         try {
             ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
             
@@ -30,7 +30,7 @@ public class CamarerosDAO {
             // A partir de aquí accederemos al fichero a guardar mediante la variable fichero
             ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
             
-
+            
             for (int i = 0; i < camareros.length; i++) {
                 if (camareros[i] == null) {
                     camareros[i] = new Camarero();
