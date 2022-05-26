@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class CamarerosDAO {
 
-    public static String FICHERO = "C:\\Users\\Luis\\Desktop\\Camareros.dat";
+    public static String FICHERO = "C:\\Users\\Alumne\\Desktop\\Camareros.dat";
      
  public void insertarCamareroNuevo(Camarero camarero) {
         
