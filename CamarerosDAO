@@ -12,50 +12,46 @@ public class CamarerosDAO {
     public static String FICHERO = "C:\\Users\\alumne\\Desktop\\Camareros.dat";
      
  public void insertarCamareroNuevo(Camarero camarero) {
-
-        if (!existeCamarero(camarero.nombreU)) {
-
-            Camarero[] camareros = new Camarero[100];
-
-            //Lectura
-            try {
-                ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
-
-                camareros = (Camarero[]) fichero.readObject();
-
-            } catch (Exception ex) {
-                System.out.println("Error al leer fichero");
-            }
-
-            //Escribir
-            try {
-                // A partir de aquí accederemos al fichero a guardar mediante la variable fichero
-                ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
-
-                for (int i = 0; i < camareros.length; i++) {
-                    if (camareros[i] == null) {
-                        camareros[i] = new Camarero();
-                        camareros[i].nombreU = camarero.getNombreU();
-                        camareros[i].nombre = camarero.getNombre();
-                        camareros[i].apellidos = camarero.getApellidos();
-                        camareros[i].salario = camarero.getSalario();
-                        camareros[i].contraseña = camarero.getContraseña();
-                        camareros[i].rango = "camarero";
-                        i = camareros.length;
-                    }
+        
+        Camarero[] camareros = new Camarero[100];
+        
+       //Lectura
+        try {
+            ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
+            
+            camareros =  (Camarero[]) fichero.readObject();
+            
+        }catch (Exception ex) {
+            System.out.println("Error al leer fichero");
+        }
+        
+        //Escribir
+        try {
+            // A partir de aquí accederemos al fichero a guardar mediante la variable fichero
+            ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
+            
+            
+            for (int i = 0; i < camareros.length; i++) {
+                if (camareros[i] == null) {
+                    camareros[i] = new Camarero();
+                    camareros[i].nombreU = camarero.getNombreU();
+                    camareros[i].nombre = camarero.getNombre();
+                    camareros[i].apellidos = camarero.getApellidos();
+                    camareros[i].salario = camarero.getSalario();
+                    camareros[i].contraseña = camarero.getContraseña();
+                    camareros[i].rango = "camarero";
+                    i = camareros.length;
                 }
-
-                // Con writeObject escribimos directamente todo el array de Empleados
-                fichero.writeObject(camareros);
-
-                // Cerramos el fichero
-                fichero.close();
-
-            } catch (Exception e) {
-                System.out.println("Ha ocurrido un error al guardar el fichero");
             }
-        } else {
-            System.out.println("Ya existe el usuario. Introduzca uno nuevo.");
+
+            // Con writeObject escribimos directamente todo el array de Empleados
+            fichero.writeObject(camareros);
+
+            // Cerramos el fichero
+            fichero.close();
+
+        } catch (Exception e) {
+            System.out.println("Ha ocurrido un error al guardar el fichero");
         }
     }
     
@@ -106,12 +102,14 @@ public class CamarerosDAO {
         //Escritura
         try {
            ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
-            
-            for (Camarero linea : camareros) {
-                if (!nombre.equals(linea.getNombreU())) {
-                    fichero.writeObject(linea+"\n");
+           Camarero camareroVacio= new Camarero();
+            for (int i = 0; i < camareros.length; i++) {
+                if (!nombre.equals(camareros[i].getNombreU())) {
+                    camareros[i]=camareroVacio;
+                    fichero.writeObject(camareros);
                 }
             }
+
             fichero.close();
 
         } catch (Exception e) {
@@ -120,7 +118,7 @@ public class CamarerosDAO {
     }
     
     public void modificarCamarero(String nombre) {
-         Camarero[] camareros = new Camarero[100];
+        Camarero[] camareros = new Camarero[100];
         Camarero camareroModificado = new Camarero();
         
         //Lectura
@@ -135,20 +133,22 @@ public class CamarerosDAO {
         }
         
         //Escritura
-        try {
+         try {
            ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
-            camareroModificado.pedirDatosC();
-            for (Camarero linea : camareros) {
-                if (!nombre.equals(linea)) {
-                    fichero.writeObject(camareroModificado+"\n");
+
+            for (int i = 0; i < camareros.length; i++) {
+                if (!nombre.equals(camareros[i].getNombreU())) {
+                    camareros[i]=camareroModificado;
+                    fichero.writeObject(camareros);
                 }
             }
+
             fichero.close();
 
         } catch (Exception e) {
             System.out.println("Ha ocurrido un error al abrir/sobreescribir el fichero");
         }
-
+         
     }
         
        public boolean existeCamarero(String usuario)  {//Detecta si existe o no el camarero
