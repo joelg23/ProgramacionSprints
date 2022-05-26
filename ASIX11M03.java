@@ -98,7 +98,8 @@ public class ASIX11M03 {
                                 CCRUD.insertarCamareroNuevo(camareroNuevo);
                                 break;
                             case 2:// Borrar Camarero
-                                System.out.print("Introduce usuario camarero a borrar: ");
+                                System.out.print("Borrando camarero...");
+                                System.out.println("Introduce usuario: ");
                                 String nombre = lector.next();
                                 CCRUD.eliminarCamarero(nombre);
                                 break;
@@ -106,7 +107,8 @@ public class ASIX11M03 {
                                 CCRUD.listarCamareros();
                                 break;
                             case 4:// Modificar Camarero
-                                System.out.print("Introduce usuario camarero a modificar: ");
+                                System.out.print("Modificando camarero...");
+                                System.out.println("Introduce usuario: ");
                                 String usuario = lector.next();
                                 CCRUD.modificarCamarero(usuario);
                                 break;
@@ -117,7 +119,7 @@ public class ASIX11M03 {
                                 break;
                             case 6:// Borrar Admin
                                 System.out.println("Borrando admin...");
-                                System.out.print("Usuario: ");
+                                System.out.print("Introduce usuario: ");
                                 String nombre1 = lector.next();
                                 ACRUD.eliminarAdmin(nombre1);
                                 break;
@@ -126,7 +128,7 @@ public class ASIX11M03 {
                                 break;
                             case 8:// Modificar Admin
                                 System.out.println("Modificando admin...");
-                                System.out.print("Usuario: ");
+                                System.out.print("Introduce usuario: ");
                                 String usuario1 = lector.next();
                                 ACRUD.modificarAdmin(usuario1);
                                 break;
@@ -157,7 +159,8 @@ public class ASIX11M03 {
                                 MCRUD.insertarMesaNueva(mesaNueva);
                                 break;
                             case 2://Borrar Mesa
-                                System.out.print("Introduce nombre de la mesa que quieres borrar: ");
+                                System.out.print("Borrando mesa...");
+                                System.out.print("ID mesa: ");
                                 String nombre = lector.next();
                                 MCRUD.eliminarMesa(nombre);
                                 break;
