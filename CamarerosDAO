@@ -56,6 +56,8 @@ public class CamarerosDAO {
     }
     
     public void listarCamareros() {//Lista los camareros
+        
+        //Lectura
         try {
             // Accedemos al fichero a leer mediante la variable fichero
             ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
@@ -119,6 +121,7 @@ public class CamarerosDAO {
     public void modificarCamarero(String nombre) {
         ArrayList<String> lineas = new ArrayList<>();
         Camarero camareroModificado = new Camarero();
+        
         //Lectura
         try {
             ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
