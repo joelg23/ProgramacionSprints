@@ -87,14 +87,13 @@ public class CamarerosDAO {
     
         
     public void eliminarCamarero(String nombre) {//Elimina el camarero con nombre de usuario pedido
-        ArrayList<String> lineas = new ArrayList<>();
+            Camarero[] camareros = new Camarero[100];
         
         //Lectura
         try {
             ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
             
-            Camarero[] camareros_leer = (Camarero[]) fichero.readObject();
-            lineas.equals(camareros_leer);
+            camareros =  (Camarero[]) fichero.readObject();
             
         }catch (Exception ex) {
             System.out.println("Error al leer fichero");
@@ -105,9 +104,8 @@ public class CamarerosDAO {
            ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
             String[] split = new String[7];
 
-            for (String linea : lineas) {
-                split = linea.split(" ");
-                if (!nombre.equals(split[0])) {
+            for (Camarero linea : camareros) {
+                if (!nombre.equals(linea)) {
                     fichero.writeObject(linea+"\n");
                 }
             }
@@ -119,7 +117,7 @@ public class CamarerosDAO {
     }
     
     public void modificarCamarero(String nombre) {
-        ArrayList<String> lineas = new ArrayList<>();
+         Camarero[] camareros = new Camarero[100];
         Camarero camareroModificado = new Camarero();
         
         //Lectura
@@ -127,7 +125,7 @@ public class CamarerosDAO {
             ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(FICHERO));
             
             Camarero[] camareros_leer = (Camarero[]) fichero.readObject();
-            lineas.equals(camareros_leer);
+            
             
         }catch (Exception ex) {
             System.out.println("Error al leer fichero");
@@ -136,11 +134,9 @@ public class CamarerosDAO {
         //Escritura
         try {
            ObjectOutputStream fichero = new ObjectOutputStream(new FileOutputStream(FICHERO));
-            String[] split = new String[7];
             camareroModificado.pedirDatosC();
-            for (String linea : lineas) {
-                split = linea.split(" ");
-                if (!nombre.equals(split[0])) {
+            for (Camarero linea : camareros) {
+                if (!nombre.equals(linea)) {
                     fichero.writeObject(camareroModificado+"\n");
                 }
             }
