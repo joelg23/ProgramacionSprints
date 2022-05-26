@@ -116,7 +116,8 @@ public class ASIX11M03 {
                                 ACRUD.insertarAdminNuevo(adminNuevo);
                                 break;
                             case 6:// Borrar Admin
-                                System.out.print("Introduce usuario camarero a borrar: ");
+                                System.out.println("Borrando admin...");
+                                System.out.print("Usuario: ");
                                 String nombre1 = lector.next();
                                 ACRUD.eliminarAdmin(nombre1);
                                 break;
@@ -124,7 +125,8 @@ public class ASIX11M03 {
                                 ACRUD.listarAdmins();
                                 break;
                             case 8:// Modificar Admin
-                                System.out.print("Introduce usuario camarero a modificar: ");
+                                System.out.println("Modificando admin...");
+                                System.out.print("Usuario: ");
                                 String usuario1 = lector.next();
                                 ACRUD.modificarAdmin(usuario1);
                                 break;
